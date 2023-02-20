@@ -1,0 +1,20 @@
+<div data-bsi-element="single-user-form" class="single-user-form d-block pt-5 pb-5">
+    <div data-bsi-dropzone="single-form-dropzone">
+        {% embed '@bsi-cx/design-standard-library-web/content-elements/form/form-container/template.twig' %}
+        {% block form_container_dropzone %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/base/h3/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/base/text/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/checkbox/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/checkbox/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+            {% include '@bsi-cx/design-standard-library-web/content-elements/form/form-field/template.twig' %}
+        {% endblock %}
+        {% endembed %}
+        {% include 'content-elements/add-button/template.twig' %}
+    </div>
+</div>
