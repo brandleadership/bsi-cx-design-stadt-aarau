@@ -9,4 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For First Person")
   .withFile(require("./template.twig"))
   .withIcon(Icon.PHONE)
-  .withParts(cx.part.raw("form-field").withLabel("Phone Field"));
+  .withParts(cx.part.formField.withLabel("Phone Field"));

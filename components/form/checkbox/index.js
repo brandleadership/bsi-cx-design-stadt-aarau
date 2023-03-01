@@ -9,4 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For Form")
   .withFile(require("./template.twig"))
   .withIcon(Icon.FORMFIELD)
-  .withParts(cx.part.raw("form-checkbox").withLabel("Checkbox Details"))
+  .withParts(cx.part.formCheckbox.withLabel("Checkbox Details"));

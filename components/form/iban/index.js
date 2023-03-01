@@ -9,4 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For Refund Requester")
   .withFile(require("./template.twig"))
   .withIcon(Icon.INFO)
-  .withParts(cx.part.raw("form-field").withLabel("Location Field"));
+  .withParts(cx.part.formField.withLabel("Location Field"));
