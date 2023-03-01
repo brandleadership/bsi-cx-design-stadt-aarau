@@ -1,0 +1,35 @@
+{# if there's a custom ID, do not treat this element as BSI element #}
+{# this is done to be able to create custom fields which must be ready when a new content is created with this design #}
+{% if custom_id %}
+    <div>
+        <div data-bsi-element-part="form-field"
+            class="reverse-for-required"
+            data-bsi-form-field-fixed-type="">
+            <input id="{{ custom_id }}"
+                name="{{ custom_id }}"
+                type="text"
+                class="custom-form-field"
+                spellcheck="false"
+                {% if required %}
+                required=""
+                {% endif %}/>
+            <label for="{{ custom_id }}">{{ form.first_name }}</label>
+        </div>
+    </div>
+{% else %}
+    <div data-bsi-element="first-name" id="firstName">
+        <div data-bsi-element-part="form-field"
+            class="reverse-for-required"
+            data-bsi-form-field-fixed-type="">
+            <input id="first-name"
+                name="first-name"
+                type="text"
+                class="custom-form-field"
+                spellcheck="false"
+                {% if required %}
+                required=""
+                {% endif %}/>
+            <label for="first-name">{{ form.first_name }}</label>
+        </div>
+    </div>
+{% endif %}

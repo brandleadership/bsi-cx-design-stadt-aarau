@@ -1,6 +1,10 @@
-@import '~@bsi-cx/design-standard-library-web/styles/styles.scss';
+@import "~@bsi-cx/design-standard-library-web/styles/styles.scss";
+@import "../../../components/form/checkbox/styles.scss";
+@import "../../../components/form/radiobutton-container/styles.scss";
+@import "../../../components/single-column/styles.scss";
+@import "../../../components/sections/form/styles.scss";
 
-$logoWidth: bsiProperty('logoWidth', 60px);
+$logoWidth: bsiProperty("logoWidth", 60px);
 
 /*
  * Global styles that are independent from a specific content element
@@ -26,7 +30,6 @@ $logoWidth: bsiProperty('logoWidth', 60px);
     }
   }
 }
-
 
 .nav-center + .navigation {
   margin-left: auto;

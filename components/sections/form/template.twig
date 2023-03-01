@@ -1,0 +1,223 @@
+{% embed '../../layout/single-column/template.twig'
+  with {
+    bsiElementName: 'form',
+    customClass: 'submit-version-one left-align-submit-button'
+  }
+%}
+  {% block single_column %}
+    <form id="form" data-bsi-element-part="form" class="submission-form">
+      <div data-bsi-form-validation="">
+        <p data-bsi-form-validation-item=""></p>
+      </div>
+      <div data-bsi-dropzone="form-container"
+        data-bsi-dropzone-allowed-elements="gender first-name last-name input-field">
+        {% include '../../form/gender/template.twig' with {
+          required: true
+        } %}
+        {% include '../../form/first-name/template.twig' with {
+          required: true
+        } %}
+        {% include '../../form/last-name/template.twig' with {
+          required: true
+        } %}
+      </div>
+      {% include '../../form/radiobutton-container/template.twig' with {
+        custom_radiobuttons: true,
+        radiobuttons_required: true,
+        radiobutton_group_label: 'Bankettkarte 1 (weitere Bankettkarten können nachfolgend bestellt werden)',
+        radiobutton_group_name: 'ticket-first',
+        radiobuttons: [
+          {
+            id: 'ticket-type-adult',
+            label: 'Erwachsene (Fr. 40.00)',
+            value: 1
+          },
+          {
+            id: 'ticket-type-family',
+            label: 'Familienbankett Erwachsene (Fr. 25.00)',
+            value: 2
+          },
+          {
+            id: 'ticket-type-family-kid',
+            label: 'Familienbankett Kind (Fr. 13.00)',
+            value: 3
+          }
+        ]
+      } only %}
+      <div data-bsi-dropzone="form-container-2"
+        data-bsi-dropzone-allowed-elements="email input-field address location phone">
+        {% include '../../form/email/template.twig' with {
+          required: true
+        } %}
+        {% include '../../form/address/template.twig' %}
+        {% include '../../form/location/template.twig' %}
+        {% include '../../form/phone/template.twig' %}
+      </div>
+      {% include '../../form/radiobutton-container/template.twig' with {
+        custom_radiobuttons: true,
+        radiobuttons_required: true,
+        radiobutton_group_label: 'Ticket - Kategorie',
+        radiobutton_group_name: 'weather-ticket-first',
+        radiobuttons: [
+          {
+            id: 'weather-first-yes',
+            label: 'Schön- und Schlechtwetterkarte',
+            value: 1
+          },
+          {
+            id: 'weather-first-no',
+            label: 'Schönwetterkarte',
+            value: 0
+          }
+        ]
+      } only %}
+      {% include '../../form/radiobutton-container/template.twig' with {
+        custom_radiobuttons: true,
+        radiobuttons_required: true,
+        radiobutton_group_label: 'Menü',
+        radiobutton_group_name: 'veggie-ticket-first',
+        radiobuttons: [
+          {
+            id: 'veggie-ticket-first-yes',
+            label: 'Vegimenü',
+            value: 1
+          },
+          {
+            id: 'veggie-ticket-first-no',
+            label: 'Fleischmenü',
+            value: 0
+          }
+        ]
+      } only %}
+      {% include '../../form/radiobutton-container/template.twig' with {
+        custom_radiobuttons: true,
+        radiobutton_group_label: 'Zusätzliche Personen anmelden (max. +5) ?',
+        radiobutton_group_name: 'additional-persons',
+        radiobuttons: [
+          {
+            id: 'additional-persons-0',
+            label: 'Ja, eine',
+            value: 1
+          },
+          {
+            id: 'additional-persons-1',
+            label: 'Ja, zwei',
+            value: 2
+          },
+          {
+            id: 'additional-persons-2',
+            label: 'Ja, drei',
+            value: 3
+          },
+          {
+            id: 'additional-persons-3',
+            label: 'Ja, vier',
+            value: 4
+          },
+          {
+            id: 'additional-persons-5',
+            label: 'Nein, keine',
+            value: 0
+          }
+        ]
+      } only %}
+      <div class="additional-persons-container">
+        {% for i in 1..4 %}
+          <div class="additional-person"
+            {{ ('id="additional-person-' ~ i ~ '"')|raw }}>
+            {% embed '../../layout/single-column/template.twig'
+              with {
+                bsiElementName: false
+              }
+            %}
+              {% block single_column %}
+                <h3 data-bsi-element-part="formatted-text"
+                  id="30302e5a-6b08-11ed-a1eb-0242ac120002-{{ i }}">
+                  Details der {{ i }}. zusätzlichen Person
+                </h3>
+              {% endblock %}
+            {% endembed %}
+            {#             {% embed '../../layouts/two-columns/template.twig'
+              with {
+                bsiElementName: false
+              }
+            %}
+              {% block column_1 %}
+                {% include '../../form/first-name/template.twig' with {
+                  custom_id: 'first-name-additional-' ~ i,
+                  form: form
+                } only %}
+              {% endblock %}
+              {% block column_2 %}
+                {% include '../../form/last-name/template.twig' with {
+                  custom_id: 'last-name-additional-' ~ i,
+                  form: form
+                } only %}
+              {% endblock %}
+            {% endembed %} #}
+            {% include '../../form/radiobutton-container/template.twig' with {
+              custom_radiobuttons: true,
+              radiobutton_group_label: 'Ticket - Typ',
+              radiobutton_group_name: 'additional-ticket-' ~ i,
+              radiobuttons: [
+                {
+                  id: 'ticket-type-additional-' ~ i ~ '-1',
+                  label: 'Erwachsene (Fr. 40.00)',
+                  value: 1
+                },
+                {
+                  id: 'ticket-type-additional-' ~ i ~ '-2',
+                  label: 'Familienbankett Erwachsene (Fr. 25.00)',
+                  value: 2
+                },
+                {
+                  id: 'ticket-type-additional-' ~ i ~ '-3',
+                  label: 'Familienbankett Kind (Fr. 13.00)',
+                  value: 3
+                }
+              ]
+            } only %}
+            {% include '../../form/radiobutton-container/template.twig' with {
+              custom_radiobuttons: true,
+              radiobutton_group_label: 'Ticket - Kategorie',
+              radiobutton_group_name: 'additional-weather-ticket-' ~ i,
+              radiobuttons: [
+                {
+                  id: 'weather-additional-' ~ i ~ '-1',
+                  label: 'Schön- und Schlechtwetterkarte',
+                  value: 1
+                },
+                {
+                  id: 'weather-additional-' ~ i ~ '-2',
+                  label: 'Schönwetterkarte',
+                  value: 0
+                }
+              ]
+            } only %}
+            {% include '../../form/radiobutton-container/template.twig' with {
+              custom_radiobuttons: true,
+              radiobutton_group_label: 'Menü',
+              radiobutton_group_name: 'additional-veggie-ticket-' ~ i,
+              radiobuttons: [
+                {
+                  id: 'veggie-additional-' ~ i ~ '-1',
+                  label: 'Vegimenü',
+                  value: 1
+                },
+                {
+                  id: 'veggie-additional-' ~ i ~ '-2',
+                  label: 'Fleischmenü',
+                  value: 0
+                }
+              ]
+            } only %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="form-submit-button-container">
+        <span id="required-missing-feedback">{{ form.provide_required }}</span>
+        <input type="submit" spellcheck="false" value="{{ form.send }}" />
+      </div>
+    </form>
+  {% endblock %}
+{% endembed %}

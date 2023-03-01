@@ -1,0 +1,9 @@
+<div {{ bsiElementName ? ( 'data-bsi-element="' ~ bsiElementName ~ '"' )|raw }} id="single-column-layout"
+    {% if customClass %}
+    class="{{ 'single-column-layout ' ~ customClass }}"
+    {% else %}
+    class="single-column-layout"
+    {% endif %}>
+    {% block single_column %}
+    {% endblock %}
+</div>

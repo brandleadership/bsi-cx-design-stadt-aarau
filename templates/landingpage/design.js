@@ -21,12 +21,11 @@ module.exports = cx.design
       .withGroupId("layout-EhFpQ7")
       .withLabel("Layout")
       .withContentElements(
-        /*         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-one"), */
+        require("@bsi-cx/design-standard-library-web/content-elements/layout/col-one"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-two"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-three"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-four"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/spacer"),
-        require("./content-elements/layout/col-one")
       ),
     cx.contentElementGroup
       .withGroupId("headings-J9rRcv")
@@ -42,7 +41,6 @@ module.exports = cx.design
       /*.withLabel('Content')*/
       .withLabel("Inhalt")
       .withContentElements(
-        require("./content-elements/add-button"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/text"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/figure"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/banner"),
@@ -61,7 +59,6 @@ module.exports = cx.design
       /*.withLabel('Forms')*/
       .withLabel("Formular")
       .withContentElements(
-        require("./content-elements/single-user-form"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/form-container"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/multi-column"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/form-field"),

@@ -17,19 +17,13 @@ module.exports = cx.design
         require("./../shared/content-elements/logo"),
         require("./../shared/content-elements/header-image")
       ),
-    // cx.contentElementGroup
-    //   .withGroupId("custom-EhFpQ7")
-    //   .withLabel("Custom")
-    //   .withContentElements(
-    //     /*         require('@bsi-cx/design-standard-library-web/content-elements/layout/col-one'), */
-    //     require("./content-element/layout/col-one")
-    //   ),
     cx.contentElementGroup
       .withGroupId("layout-EhFpQ7")
       .withLabel("Layout")
       .withContentElements(
         /*         require('@bsi-cx/design-standard-library-web/content-elements/layout/col-one'), */
         require("../../components/layout/col-one"),
+        require("../../components/layout/single-column"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-two"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-three"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-four"),
@@ -62,6 +56,25 @@ module.exports = cx.design
         require("@bsi-cx/design-standard-library-web/content-elements/base/social-media-share"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/chart"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/html")
+      ),
+    cx.contentElementGroup
+      .withGroupId("forms-custom")
+      /*.withLabel('Forms')*/
+      .withLabel("Gruppe Formular")
+      .withContentElements(
+        require("../../components/sections/form"),
+        require("../../components/form/address"),
+        require("../../components/form/checkbox"),
+        require("../../components/form/email"),
+        require("../../components/form/first-name"),
+        require("../../components/form/gender"),
+        require("../../components/form/iban"),
+        require("../../components/form/input-field"),
+        require("../../components/form/last-name"),
+        require("../../components/form/location"),
+        require("../../components/form/phone"),
+        require("../../components/form/radiobutton-container"),
+        require("../../components/form/textarea"),
       ),
     cx.contentElementGroup
       .withGroupId("forms-NjbmnQ")
