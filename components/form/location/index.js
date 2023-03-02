@@ -9,4 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For First Person")
   .withFile(require("./template.twig"))
   .withIcon(Icon.COMPASS)
-  .withParts(cx.part.raw("form-field").withLabel("Location Field"));
+  .withParts(cx.part.formField.withLabel("Location Field"));

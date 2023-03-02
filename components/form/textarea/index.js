@@ -9,4 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For Form")
   .withFile(require("./template.twig"))
   .withIcon(Icon.FORMFIELD)
-  .withParts(cx.part.raw("form-textarea").withLabel("Textarea Details"));
+  .withParts(cx.part.formTextarea.withLabel("Textarea Details"));

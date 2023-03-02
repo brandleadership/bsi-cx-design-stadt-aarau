@@ -9,6 +9,4 @@ module.exports = cx.contentElement
   .withDescription("For Form")
   .withFile(require("./template.twig"))
   .withIcon(Icon.FORMFIELD)
-  .withParts(
-    cx.part.raw("form-field").withLabel("First Name Field")
-    );
+  .withParts(cx.part.formField.withLabel("First Name Field"));
