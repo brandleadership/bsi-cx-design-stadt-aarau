@@ -1,10 +1,10 @@
 @import "~@bsi-cx/design-standard-library-web/styles/styles.scss";
-@import "../../../components/form/checkbox/styles.scss";
-@import "../../../components/form/radiobutton-container/styles.scss";
-@import "../../../components/layout/single-column/styles.scss";
-@import "../../../components/layout/two-columns/styles.scss";
-@import "../../../components/sections/form/styles.scss";
-
+// @import "../../../components/form/checkbox/styles.scss";
+// @import "../../../components/form/radiobutton-container/styles.scss";
+// @import "../../../components/layout/single-column/styles.scss";
+// @import "../../../components/layout/two-columns/styles.scss";
+// @import "../../../components/sections/form/styles.scss";
+@import "./stylesMaienzug.scss";
 $logoWidth: bsiProperty("logoWidth", 60px);
 
 /*
@@ -46,284 +46,68 @@ $logoWidth: bsiProperty("logoWidth", 60px);
   }
 }
 
-//Single Column Layout
-.single-column-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    margin: 0 auto;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.5;
 }
-
-.single-column-layout > * {
-    width: 100%;
+* {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
 }
-
-// Two Columns Layout
-
-.two-columns-layout {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 10px 0;
-    flex-wrap: wrap;
+.content-container {
+  display: flex;
+  flex-direction: column;
 }
-
-/* mobile first */
-.two-columns-layout .half-column {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+/* needed to combine BSI "required" feature with optimal layout */
+.reverse-for-required {
+  display: flex;
+  flex-direction: column-reverse;
 }
-
-.two-columns-layout .half-column:nth-child(2) {
-    padding-top: 10px;
+/* spacing needed due to reversing */
+.reverse-for-required > label {
+  margin-bottom: 3px;
 }
-
-@media (min-width: 650px) {
-    .two-columns-layout .half-column {
-        width: 48%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-
-    .two-columns-layout .half-column:first-child {
-        margin-right: 2%;
-    }
-
-    .two-columns-layout .half-column:nth-child(2) {
-        margin-left: 2%;
-        padding-top: 0;
-    }
+input:not([type="radio"]):required ~ label::after,
+select:required ~ label::after,
+textarea:required ~ label::after {
+  content: "*";
+  color: red;
+  padding-left: 5px;
 }
-
-.two-columns-layout .half-column > * {
-    width: 100%;
+/* generally used form stylings */
+textarea {
+  resize: none;
 }
-
-//Group Form
-form .missing-required-field {
-    border-color: red;
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border-radius: 3px;
+  border: 1px solid #687374;
+  padding: 5px 10px;
+  margin: 10px 0;
+  background-color: white;
 }
-
-#required-missing-feedback {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    color: red;
-    overflow: hidden;
-    height: 0;
+/* increased padding for select to have same appearance as input fields */
+select {
+  padding: 10px 10px;
 }
-
-#required-missing-feedback.enable {
-    height: auto;
+select::-ms-expand {
+  display: none;
 }
-
-input[type="submit"] {
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0;
-    font-size: 16px;
-    margin: 20px 0;
-    transition: border-color 0.5s, color 0.5s, background 0.5s;
+*:-moz-focusring {
+  outline: none;
 }
-
-input[type="submit"]:hover {
-    cursor: pointer;
+*:focus {
+  outline: none;
 }
-
-.left-align-submit-button .form-submit-button-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
+select:hover {
+  cursor: pointer;
 }
-
-.center-submit-button .form-submit-button-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-}
-
-.submission-form input[type="submit"] {
-    border-radius: 0 !important;
-}
-
-.additional-person {
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.5s, opacity 0.5s;
-    overflow: hidden;
-}
-
-.additional-person.toggled {
-    max-height: 1250px;
-    opacity: 1;
-}
-
-
-//Radiobutton Container
-
-/* highlight required radiobutton sets with required star */
-.required-radiobutton-field::after {
-    content: "*";
-    color: red;
-    padding-left: 5px;
-}
-
-/* style custom radiobuttons */
-input[type="radio"] {
-    display: none;
-}
-
-/* correctly align content */
-
-.custom-radiobutton-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* accomodate spacing for custom checkbox in label */
-
-.custom-radiobutton-container label {
-    padding-left: 30px;
-    /* In BSI, the label cannot wrap around the input element, 
-    as it is traditionally done when using custom checkbox for optimal 
-    UX + styling. Hence, we have to position the checkbox label
-    above the .custom-checkbox-frame; otherwise the checkbox would
-    not be directly clickable */
-    /* to assure that checkbox is always clickable (place label above) */
-    z-index: 2;
-    margin-left: -15px;
-}
-
-.custom-radiobutton-container label:hover {
-    cursor: pointer;
-}
-
-/* create custom checkbox frame */
-
-.custom-radiobutton-container .custom-radiobutton-frame {
-    background-color: white;
-    width: 15px;
-    height: 15px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    /* assure that checkbox is clickable (place below label) */
-    z-index: 1;
-}
-
-.custom-radiobutton-container label:hover ~ .custom-radiobutton-frame {
-    background-color: #eee;
-}
-
-/* create custom checkbox checked symbol */
-
-.custom-radiobutton-frame::after {
-    content: "";
-    width: 4px;
-    height: 9px;
-    transform: rotate(45deg);
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    display: none;
-    /* to assure that checkbox is clickable (place below label) also when checked */
-    z-index: 1;
-}
-
-.custom-radiobutton-container input:checked ~ .custom-radiobutton-frame::after {
-    display: block;
-}
-
-.radiobutton-container-wrapper {
-    margin: 10px 0;
-}
-
-.radiobutton-container-wrapper > div > label {
-    margin-bottom: 5px;
-}
-
-
-//Checkboxes
-
-/* disable default checkbox display */
-
-input[type="checkbox"] {
-    display: none;
-}
-
-/* correctly align content */
-
-.custom-checkbox-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* accomodate spacing for custom checkbox in label */
-
-.custom-checkbox-container label {
-    padding-left: 30px;
-    /* In BSI, the label cannot wrap around the input element, 
-    as it is traditionally done when using custom checkbox for optimal 
-    UX + styling. Hence, we have to position the checkbox label
-    above the .custom-checkbox-frame; otherwise the checkbox would
-    not be directly clickable */
-    /* to assure that checkbox is always clickable (place label above) */
-    z-index: 2;
-    margin-left: -15px;
-}
-
-.custom-checkbox-container label:hover {
-    cursor: pointer;
-}
-
-/* create custom checkbox frame */
-
-.custom-checkbox-container .custom-checkbox-frame {
-    background-color: white;
-    width: 15px;
-    height: 15px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    /* assure that checkbox is clickable (place below label) */
-    z-index: 1;
-}
-
-.custom-checkbox-container label:hover ~ .custom-checkbox-frame {
-    background-color: #eee;
-}
-
-/* create custom checkbox checked symbol */
-
-.custom-checkbox-frame::after {
-    content: "";
-    width: 4px;
-    height: 9px;
-    transform: rotate(45deg);
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    display: none;
-    /* to assure that checkbox is clickable (place below label) also when checked */
-    z-index: 1;
-}
-
-.custom-checkbox-container input:checked ~ .custom-checkbox-frame::after {
-    display: block;
-}
-
-.custom-checkbox-container {
-    margin: 10px 0;
-}
-

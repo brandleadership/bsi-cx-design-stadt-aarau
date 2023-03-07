@@ -1,0 +1,477 @@
+// Button
+.custom-button {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 16px;
+  margin: 20px 0;
+  transition: border-color 0.5s, color 0.5s, background 0.5s;
+  background: #d70020;
+  border: 3px solid #d70020;
+  text-decoration: none;
+}
+
+.custom-button:hover {
+  cursor: pointer;
+}
+
+.custom-button:hover,
+.custom-button:focus {
+  color: #d70020;
+  border-color: #d70020;
+  background-color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// Hint-list
+.hint-list {
+  padding: 0 0 0 20px;
+  list-style-position: outside;
+}
+
+// Full-width
+.full-width-layout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+// Single-column
+.single-column-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.single-column-layout > * {
+  width: 100%;
+}
+
+// Two-columns
+.two-columns-layout {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+/* mobile first */
+.two-columns-layout .half-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.two-columns-layout .half-column:nth-child(2) {
+  padding-top: 10px;
+}
+
+@media (min-width: 650px) {
+  .two-columns-layout .half-column {
+    width: 48%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .two-columns-layout .half-column:first-child {
+    margin-right: 2%;
+  }
+
+  .two-columns-layout .half-column:nth-child(2) {
+    margin-left: 2%;
+    padding-top: 0;
+  }
+}
+
+.two-columns-layout .half-column > * {
+  width: 100%;
+}
+
+// Hero-img
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+// Spacer
+.spacer {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
+
+// Form
+form .missing-required-field {
+  border-color: red;
+}
+
+#required-missing-feedback {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: red;
+  overflow: hidden;
+  height: 0;
+}
+
+#required-missing-feedback.enable {
+  height: auto;
+}
+
+input[type="submit"] {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 16px;
+  margin: 20px 0;
+  transition: border-color 0.5s, color 0.5s, background 0.5s;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.left-align-submit-button .form-submit-button-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.center-submit-button .form-submit-button-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submission-form input[type="submit"] {
+  border-radius: 0 !important;
+}
+
+.additional-person {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s, opacity 0.5s;
+  overflow: hidden;
+}
+
+.additional-person.toggled {
+  max-height: 1250px;
+  opacity: 1;
+}
+
+// Hero-not-full
+.hero-img-not-full {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+// Top-bar
+.top-bar-container {
+  height: 125px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid lightgray;
+  z-index: 99;
+}
+
+.top-bar-logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-bar-container .top-bar-logo {
+  height: 65px;
+  width: auto;
+}
+
+/* If a top bar is placed before the hero img element, make the header sticky  */
+.top-bar-container ~ * {
+  margin-top: 125px;
+}
+
+// Signatures
+.signatures-table-container {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+// CHeckbox
+input[type="checkbox"] {
+  display: none;
+}
+
+/* correctly align content */
+
+.custom-checkbox-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* accomodate spacing for custom checkbox in label */
+
+.custom-checkbox-container label {
+  padding-left: 30px;
+  /* In BSI, the label cannot wrap around the input element,
+    as it is traditionally done when using custom checkbox for optimal
+    UX + styling. Hence, we have to position the checkbox label
+    above the .custom-checkbox-frame; otherwise the checkbox would
+    not be directly clickable */
+  /* to assure that checkbox is always clickable (place label above) */
+  z-index: 2;
+  margin-left: -15px;
+}
+
+.custom-checkbox-container label:hover {
+  cursor: pointer;
+}
+
+/* create custom checkbox frame */
+
+.custom-checkbox-container .custom-checkbox-frame {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  /* assure that checkbox is clickable (place below label) */
+  z-index: 1;
+}
+
+.custom-checkbox-container label:hover ~ .custom-checkbox-frame {
+  background-color: #eee;
+}
+
+/* create custom checkbox checked symbol */
+
+.custom-checkbox-frame::after {
+  content: "";
+  width: 4px;
+  height: 9px;
+  transform: rotate(45deg);
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  display: none;
+  /* to assure that checkbox is clickable (place below label) also when checked */
+  z-index: 1;
+}
+
+.custom-checkbox-container input:checked ~ .custom-checkbox-frame::after {
+  display: block;
+}
+
+.custom-checkbox-container {
+  margin: 10px 0;
+}
+
+// Radiobutton-container
+/* highlight required radiobutton sets with required star */
+.required-radiobutton-field::after {
+  content: "*";
+  color: red;
+  padding-left: 5px;
+}
+
+/* style custom radiobuttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* correctly align content */
+
+.custom-radiobutton-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* accomodate spacing for custom checkbox in label */
+
+.custom-radiobutton-container label {
+  padding-left: 30px;
+  /* In BSI, the label cannot wrap around the input element,
+    as it is traditionally done when using custom checkbox for optimal
+    UX + styling. Hence, we have to position the checkbox label
+    above the .custom-checkbox-frame; otherwise the checkbox would
+    not be directly clickable */
+  /* to assure that checkbox is always clickable (place label above) */
+  z-index: 2;
+  margin-left: -15px;
+}
+
+.custom-radiobutton-container label:hover {
+  cursor: pointer;
+}
+
+/* create custom checkbox frame */
+
+.custom-radiobutton-container .custom-radiobutton-frame {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  /* assure that checkbox is clickable (place below label) */
+  z-index: 1;
+}
+
+.custom-radiobutton-container label:hover ~ .custom-radiobutton-frame {
+  background-color: #eee;
+}
+
+/* create custom checkbox checked symbol */
+
+.custom-radiobutton-frame::after {
+  content: "";
+  width: 4px;
+  height: 9px;
+  transform: rotate(45deg);
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  display: none;
+  /* to assure that checkbox is clickable (place below label) also when checked */
+  z-index: 1;
+}
+
+.custom-radiobutton-container input:checked ~ .custom-radiobutton-frame::after {
+  display: block;
+}
+
+.radiobutton-container-wrapper {
+  margin: 10px 0;
+}
+
+.radiobutton-container-wrapper > div > label {
+  margin-bottom: 5px;
+}
+
+// Rating
+.rating-set-container {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.rating-set-container > .custom-radiobutton-container {
+  flex-grow: 1;
+  position: relative;
+}
+
+.rating-set-container .custom-radiobutton-container label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* create custom checkbox frame */
+
+.custom-radiobutton-container .custom-radiobutton-frame-rating {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  /* assure that checkbox is clickable (place below label) */
+  z-index: 1;
+}
+
+.rating-set-container .custom-radiobutton-frame-rating {
+  width: 100%;
+  height: 100%;
+}
+
+.rating-set-container
+  .custom-radiobutton-container:first-of-type
+  .custom-radiobutton-frame-rating {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.rating-set-container
+  .custom-radiobutton-container:last-of-type
+  .custom-radiobutton-frame-rating {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.custom-radiobutton-container label:hover ~ .custom-radiobutton-frame-rating {
+  background-color: #eee;
+}
+
+.rating-labels {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.rating-labels .label-left {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rating-labels .label-right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+// Version One
+
+.submit-version-one input[type="submit"] {
+  background: #d70020;
+  border: 3px solid #d70020;
+}
+.submit-version-one input[type="submit"]:hover,
+.submit-version-one input[type="submit"]:focus {
+  color: #d70020;
+  border-color: #d70020;
+  background-color: white;
+}
+.rating-radiobutton-version-one
+  .custom-radiobutton-container
+  input:checked
+  ~ .custom-radiobutton-frame-rating {
+  background-color: #d70020;
+}

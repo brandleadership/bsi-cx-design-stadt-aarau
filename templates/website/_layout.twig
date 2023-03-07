@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% verbatim %}{{ navigation.activePage.pageTitle }}{% endverbatim %}</title>
-        {% include  './../shared/html-header.twig' %}
-    </head>
+  <head>
+    <title>
+      {% verbatim %}{{ navigation.activePage.pageTitle }}{% endverbatim %}
+    </title>
+    {% include './../shared/html-header.twig' %}
 
-    <body class="d-flex flex-column min-vh-100">
+    <link rel="stylesheet" href="{{ bsi_cx_css_href() }}" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
     {% apply spaceless %}
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container {{ properties.logoAlignment }}">
-                <div class="navbar-brand">
-                    {% block logo %}{% endblock %}
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% block navigation %}{% endblock %}
-            </div>
-        </nav>
-        {% block header %}{% endblock %}
-
-        <div id="content" class="mb-4 flex-grow-1 d-flex flex-column">
-            {% block content %}{% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container {{ properties.logoAlignment }}">
+        <div class="navbar-brand">
+          {% block logo %}
+          {% endblock %}
         </div>
+        <button class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {% block navigation %}
+        {% endblock %}
+      </div>
+    </nav>
+    {% block header %}
+    {% endblock %}
 
-        {% block footer %}{% endblock %}
+    <div id="content" class="mb-4 flex-grow-1 d-flex flex-column">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    {% block footer %}
+    {% endblock %}
 
     {% endapply %}
 
-    <script>window.properties={{ properties|json_encode|raw }}</script>
-    <script src="{{ bsi_cx_js_module_runtime_href() }}" data-bsi-remove-if="draft" defer="defer"></script>
+    <script>
+      window.properties={{ properties|json_encode|raw }}
+    </script>
+    <script src="{{ bsi_cx_js_module_runtime_href() }}"
+      data-bsi-remove-if="draft"
+      defer="defer"></script>
     {{ bsi_cx_js_module_missing_chunks_import() }}
-    </body>
+  </body>
 </html>
