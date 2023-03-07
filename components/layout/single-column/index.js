@@ -8,4 +8,4 @@ module.exports = cx.contentElement
   .withLabel("Single Column Layout")
   .withDescription("For Form")
   .withFile(require("./template.twig"))
-  .withIcon(Icon.FORMFIELD)
+  .withIcon(Icon.ONE_COLUMN)

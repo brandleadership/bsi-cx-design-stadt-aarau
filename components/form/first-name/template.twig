@@ -13,11 +13,11 @@
                 {% if required %}
                 required=""
                 {% endif %}/>
-            <label for="{{ custom_id }}">{{ form.first_name }}</label>
+            <label for="{{ custom_id }}">{{ properties.form.first_name }}</label>
         </div>
     </div>
 {% else %}
-    <div data-bsi-element="first-name" id="firstName">
+    <div data-bsi-element="first-name">
         <div data-bsi-element-part="form-field"
             class="reverse-for-required"
             data-bsi-form-field-fixed-type="">
@@ -29,7 +29,7 @@
                 {% if required %}
                 required=""
                 {% endif %}/>
-            <label for="first-name">{{ form.first_name }}</label>
+            <label for="first-name">Vorname</label>
         </div>
     </div>
 {% endif %}

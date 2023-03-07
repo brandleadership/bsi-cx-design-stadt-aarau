@@ -24,6 +24,7 @@ module.exports = cx.design
         /*         require('@bsi-cx/design-standard-library-web/content-elements/layout/col-one'), */
         require("../../components/layout/col-one"),
         require("../../components/layout/single-column"),
+        require("../../components/layout/two-columns"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-two"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-three"),
         require("@bsi-cx/design-standard-library-web/content-elements/layout/col-four"),
@@ -43,7 +44,6 @@ module.exports = cx.design
       /*.withLabel('Content')*/
       .withLabel("Inhalt")
       .withContentElements(
-        require("../../components/add-button"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/text"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/figure"),
         require("@bsi-cx/design-standard-library-web/content-elements/base/banner"),
@@ -72,16 +72,16 @@ module.exports = cx.design
         require("../../components/form/input-field"),
         require("../../components/form/last-name"),
         require("../../components/form/location"),
+        require("../../components/form/name-line"),
         require("../../components/form/phone"),
         require("../../components/form/radiobutton-container"),
-        require("../../components/form/textarea"),
+        require("../../components/form/textarea")
       ),
     cx.contentElementGroup
       .withGroupId("forms-NjbmnQ")
       /*.withLabel('Forms')*/
       .withLabel("Formular")
       .withContentElements(
-        require("../../components/single-user-form"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/form-container"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/multi-column"),
         require("@bsi-cx/design-standard-library-web/content-elements/form/form-field"),

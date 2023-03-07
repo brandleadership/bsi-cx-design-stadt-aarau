@@ -36,7 +36,6 @@ element
         require("@bsi-cx/design-standard-library-web/content-elements/base/banner"),
         ...contentElements,
         require("@bsi-cx/design-standard-library-web/content-elements/form/form-container"),
-        require("../../single-user-form"),
         require("../../sections/form")
       )
   );

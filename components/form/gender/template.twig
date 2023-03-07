@@ -24,7 +24,7 @@ Frau|w"
                     {{ form.madam }}
                 </option>
             </select>
-            <label for="{{ custom_id }}">{{ form.speech }}</label>
+            <label for="{{ custom_id }}">{{ properties.form.gender }}</label>
         </div>
     </div>
 {% else %}
@@ -51,7 +51,7 @@ Frau|w"
                     {{ form.madam }}
                 </option>
             </select>
-            <label for="gender-select">{{ form.speech }}</label>
+            <label for="gender-select">{{ properties.form.gender }}</label>
         </div>
     </div>
 {% endif %}

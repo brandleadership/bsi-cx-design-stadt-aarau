@@ -10,7 +10,7 @@
         <p data-bsi-form-validation-item=""></p>
       </div>
       <div data-bsi-dropzone="form-container"
-        data-bsi-dropzone-allowed-elements="gender first-name last-name input-field">
+        data-bsi-dropzone-allowed-elements="gender first-name last-name input-field name-line">
         {% include '../../form/gender/template.twig' with {
           required: true
         } %}
@@ -45,7 +45,7 @@
         ]
       } only %}
       <div data-bsi-dropzone="form-container-2"
-        data-bsi-dropzone-allowed-elements="email input-field address location phone">
+        data-bsi-dropzone-allowed-elements="email input-field address location phone name-line">
         {% include '../../form/email/template.twig' with {
           required: true
         } %}
@@ -136,7 +136,7 @@
                 </h3>
               {% endblock %}
             {% endembed %}
-            {#             {% embed '../../layouts/two-columns/template.twig'
+            {% embed '../../layout/two-columns/template.twig'
               with {
                 bsiElementName: false
               }
@@ -153,7 +153,7 @@
                   form: form
                 } only %}
               {% endblock %}
-            {% endembed %} #}
+            {% endembed %}
             {% include '../../form/radiobutton-container/template.twig' with {
               custom_radiobuttons: true,
               radiobutton_group_label: 'Ticket - Typ',
