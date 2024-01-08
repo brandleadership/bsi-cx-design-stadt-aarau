@@ -1,0 +1,19 @@
+<div {{ bsiElementName ? ( ' data-bsi-element="' ~ bsiElementName ~ '"' )|raw }} id="two-columns-layout"
+    class="two-columns-layout">
+    <div class="half-column" 
+    {{ dropzoneName_1 ? ( 'data-bsi-dropzone="' ~ dropzoneName_1 ~ '"' )|raw }} 
+    {{ dropAllowedElements_1 ? ( 'data-bsi-dropzone-allowed-elements="' ~ dropAllowedElements_1 ~ '"' )|raw }} 
+    {{ dropMaxElements_1 ? ( 'data-bsi-dropzone-max-number-of-elements="' ~ dropMaxElements_1 ~ '"' )|raw }}>
+        {% block column_1 %}
+
+        {% endblock %}
+    </div>
+    <div class="half-column" 
+    {{ dropzoneName_2 ? ( 'data-bsi-dropzone="' ~ dropzoneName_2 ~ '"' )|raw }} 
+    {{ dropAllowedElements_2 ? ( 'data-bsi-dropzone-allowed-elements="' ~ dropAllowedElements_2 ~ '"' )|raw }} 
+    {{ dropMaxElements_2 ? ( 'data-bsi-dropzone-max-number-of-elements="' ~ dropMaxElements_2 ~ '"' )|raw }}>
+        {% block column_2 %}
+
+        {% endblock %}
+    </div>
+</div>

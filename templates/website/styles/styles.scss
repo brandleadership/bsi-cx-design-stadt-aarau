@@ -1,6 +1,11 @@
-@import '~@bsi-cx/design-standard-library-web/styles/styles.scss';
-
-$logoWidth: bsiProperty('logoWidth', 60px);
+@import "~@bsi-cx/design-standard-library-web/styles/styles.scss";
+// @import "../../../components/form/checkbox/styles.scss";
+// @import "../../../components/form/radiobutton-container/styles.scss";
+// @import "../../../components/layout/single-column/styles.scss";
+// @import "../../../components/layout/two-columns/styles.scss";
+// @import "../../../components/sections/form/styles.scss";
+@import "./stylesMaienzug.scss";
+$logoWidth: bsiProperty("logoWidth", 60px);
 
 /*
  * Global styles that are independent from a specific content element
@@ -27,7 +32,6 @@ $logoWidth: bsiProperty('logoWidth', 60px);
   }
 }
 
-
 .nav-center + .navigation {
   margin-left: auto;
   margin-right: auto;
@@ -40,4 +44,70 @@ $logoWidth: bsiProperty('logoWidth', 60px);
     margin-left: auto;
     margin-right: 0;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+* {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+/* needed to combine BSI "required" feature with optimal layout */
+.reverse-for-required {
+  display: flex;
+  flex-direction: column-reverse;
+}
+/* spacing needed due to reversing */
+.reverse-for-required > label {
+  margin-bottom: 3px;
+}
+input:not([type="radio"]):required ~ label::after,
+select:required ~ label::after,
+textarea:required ~ label::after {
+  content: "*";
+  color: red;
+  padding-left: 5px;
+}
+/* generally used form stylings */
+textarea {
+  resize: none;
+}
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border-radius: 3px;
+  border: 1px solid #687374;
+  padding: 5px 10px;
+  margin: 10px 0;
+  background-color: white;
+}
+/* increased padding for select to have same appearance as input fields */
+select {
+  padding: 10px 10px;
+}
+select::-ms-expand {
+  display: none;
+}
+*:-moz-focusring {
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
+select:hover {
+  cursor: pointer;
 }

@@ -1,0 +1,12 @@
+const { cx, Icon } = require("@bsi-cx/design-build");
+
+/**
+ * @returns {ContentElement}
+ */
+module.exports = cx.contentElement
+  .withElementId("input-field")
+  .withLabel("Text Input")
+  .withDescription("For Form")
+  .withFile(require("./template.twig"))
+  .withIcon(Icon.FORMFIELD)
+  .withParts(cx.part.formField.withLabel("Text Input Field"));

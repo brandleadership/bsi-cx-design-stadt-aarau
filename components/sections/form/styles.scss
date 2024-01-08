@@ -1,0 +1,59 @@
+form .missing-required-field {
+  border-color: red;
+}
+
+#required-missing-feedback {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: red;
+  overflow: hidden;
+  height: 0;
+}
+
+#required-missing-feedback.enable {
+  height: auto;
+}
+
+input[type="submit"] {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 16px;
+  margin: 20px 0;
+  transition: border-color 0.5s, color 0.5s, background 0.5s;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.left-align-submit-button .form-submit-button-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.center-submit-button .form-submit-button-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submission-form input[type="submit"] {
+  border-radius: 0 !important;
+}
+
+.additional-person {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s, opacity 0.5s;
+  overflow: hidden;
+}
+
+.additional-person.toggled {
+  max-height: 1250px;
+  opacity: 1;
+}

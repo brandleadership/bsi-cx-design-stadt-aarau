@@ -1,0 +1,77 @@
+{# if data has been provided to pre-built a radiobutton set, use that data set, and in this case do not
+ define the thus defined element as BSI element, as its content is variable in these cases
+#}
+{% if custom_radiobuttons %}
+    {# Build label|value pairs #}
+    {% set value_list = '' %}
+    {% for radiobutton in radiobuttons %}
+        {% set value_list = value_list ~ radiobutton.label ~ '|'
+            ~ radiobutton.value
+        %}
+        {% if not loop.last %}
+            {% set value_list = value_list ~ '\n' %}
+        {% endif %}
+    {% endfor %}
+
+    {# close off wrapping div tag withot 'data-bsi-element' attribute #}
+    <div class="radiobutton-container-wrapper">
+        <div id="{{ radiobutton_group_name }}"
+            data-bsi-element-part="form-radio"
+            data-bsi-value-list="{{ value_list }}"
+            data-bsi-fixed-value-list="">
+            <label>{{ radiobutton_group_label }}</label>
+            <div data-bsi-radio-group="" class="radiobutton-set-container">
+                {% for radiobutton in radiobuttons %}
+                    <div data-bsi-radio-item=""
+                        class="custom-radiobutton-container">
+                        <input type="radio"
+                            name="{{ radiobutton_group_name }}"
+                            id="{{ radiobutton.id }}"
+                            value="{{ radiobutton.value }}"
+                            spellcheck="false" 
+                            {% if radiobuttons_required %}
+                            required=""
+                            {% endif %}/>
+                        <label for="{{ radiobutton.id }}">
+                            {{ radiobutton.label }}
+                        </label>
+                        <span class="custom-radiobutton-frame"></span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div data-bsi-element="radiobutton-container"
+        class="radiobutton-container-wrapper">
+        <div id="sample-radio-group"
+            data-bsi-element-part="form-radio"
+            data-bsi-value-list="First Option|1
+Second Option|2"
+            data-bsi-fixed-value-list="">
+            <label>Radio Group Title</label>
+            <div data-bsi-radio-group="" class="radiobutton-set-container">
+                <div data-bsi-radio-item=""
+                    class="custom-radiobutton-container">
+                    <input type="radio"
+                        name="sample-radio-group"
+                        id="sample-radio-group-1"
+                        value="1"
+                        spellcheck="false" />
+                    <label for="sample-radio-group-1">First Option</label>
+                    <span class="custom-radiobutton-frame"></span>
+                </div>
+                <div data-bsi-radio-item=""
+                    class="custom-radiobutton-container">
+                    <input type="radio"
+                        name="sample-radio-group"
+                        id="sample-radio-group-2"
+                        value="2"
+                        spellcheck="false" />
+                    <label for="sample-radio-group-2">Second Option</label>
+                    <span class="custom-radiobutton-frame"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

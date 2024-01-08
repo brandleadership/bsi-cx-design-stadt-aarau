@@ -1,0 +1,33 @@
+{% set dropzoneName_1 = dropzoneName_1 ? : 'first-name' %}
+{% set dropzoneName_2 = dropzoneName_2 ? : 'last-name' %}
+
+{% embed '../../layout/two-columns/template.twig'
+    with {
+        bsiElementName: 'name-line',
+        dropzoneName_1: dropzoneName_1,
+        dropAllowedElements_1: 'first-name',
+        dropMaxElements_1: 1,
+        dropzoneName_2: dropzoneName_2,
+        dropAllowedElements_2: 'last-name',
+        dropMaxElements_2: 1
+    }
+%}
+    {% block column_1 %}
+        {% if required %}
+            {% include '../first-name/template.twig' with {
+                required: true
+            } %}
+        {% else %}
+            {% include '../first-name/template.twig' %}
+        {% endif %}
+    {% endblock %}
+    {% block column_2 %}
+        {% if required %}
+            {% include '../last-name/template.twig' with {
+                required: true
+            } %}
+        {% else %}
+            {% include '../last-name/template.twig' %}
+        {% endif %}
+    {% endblock %}
+{% endembed %}

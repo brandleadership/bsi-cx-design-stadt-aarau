@@ -1,0 +1,57 @@
+{# if there's a custom ID, do not treat this element as BSI element #}
+{# this is done to be able to create custom fields which must be ready when a new content is created with this design #}
+{% if custom_id %}
+    <div>
+        <div data-bsi-element-part="form-select"
+            data-bsi-value-list="Bitte wählen|none
+Herr|m
+Frau|w"
+            class="reverse-for-required">
+            <select id="{{ custom_id }}"
+                name="{{ custom_id }}"
+                class="custom-select"
+                spellcheck="false"
+                {% if required %}
+                required=""
+                {% endif %}>
+                <option value="none">
+                    {{ form.please_select }}
+                </option>
+                <option value="m">
+                    {{ form.sir }}
+                </option>
+                <option value="w">
+                    {{ form.madam }}
+                </option>
+            </select>
+            <label for="{{ custom_id }}">{{ properties.form.gender }}</label>
+        </div>
+    </div>
+{% else %}
+    <div data-bsi-element="gender" id="gender-select">
+        <div data-bsi-element-part="form-select"
+            data-bsi-value-list="Bitte wählen|none
+Herr|m
+Frau|w"
+            class="reverse-for-required">
+            <select id="gender-select"
+                name="gender-select"
+                class="custom-select"
+                spellcheck="false"
+                {% if required %}
+                required=""
+                {% endif %}>
+                <option value="none">
+                    {{ form.please_select }}
+                </option>
+                <option value="m">
+                    {{ form.sir }}
+                </option>
+                <option value="w">
+                    {{ form.madam }}
+                </option>
+            </select>
+            <label for="gender-select">{{ properties.form.gender }}</label>
+        </div>
+    </div>
+{% endif %}
