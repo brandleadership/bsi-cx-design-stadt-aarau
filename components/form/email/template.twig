@@ -9,12 +9,12 @@
                 name="{{ custom_id }}"
                 type="text"
                 class="custom-form-field"
-                data-bsi-form-validation-message="{{ form.email_error }}"
+                data-bsi-form-validation-message="Bitte Email richtig ausfüllen"
                 spellcheck="false"
                 {% if required %}
                 required=""
                 {% endif %}/>
-            <label for="{{ custom_id }}">{{ form.email }}</label>
+            <label for="{{ custom_id }}">E-mail</label>
         </div>
     </div>
 {% else %}
@@ -26,12 +26,12 @@
                 name="email"
                 type="text"
                 class="custom-form-field"
-                data-bsi-form-validation-message="{{ form.email_error }}"
+                data-bsi-form-validation-message="Bitte Email richtig ausfüllen"
                 spellcheck="false"
                 {% if required %}
                 required=""
                 {% endif %}/>
-            <label for="email">{{ form.email }}</label>
+            <label for="email">E-mail</label>
         </div>
     </div>
 {% endif %}

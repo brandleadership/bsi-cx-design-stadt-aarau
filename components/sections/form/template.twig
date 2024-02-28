@@ -116,13 +116,18 @@
           },
           {
             id: 'additional-persons-5',
+            label: 'Ja, fünf',
+            value: 5
+          },
+          {
+            id: 'additional-persons-6',
             label: 'Nein, keine',
             value: 0
           }
         ]
       } only %}
       <div class="additional-persons-container">
-        {% for i in 1..4 %}
+        {% for i in 1..5 %}
           <div class="additional-person"
             {{ ('id="additional-person-' ~ i ~ '"')|raw }}>
             {% embed '../../layout/single-column/template.twig'
@@ -215,7 +220,7 @@
       </div>
       <div class="form-submit-button-container">
         <span id="required-missing-feedback">{{ form.provide_required }}</span>
-        <input type="submit" spellcheck="false" value="{{ form.send }}" />
+        <input type="submit" spellcheck="false" value="Absenden" />
       </div>
     </form>
   {% endblock %}

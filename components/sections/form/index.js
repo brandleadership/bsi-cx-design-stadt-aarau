@@ -14,10 +14,12 @@ module.exports = cx.contentElement
     cx.part.formattedText.withLabel("Title Third Person"),
     cx.part.formattedText.withLabel("Title Fourth Person"),
     cx.part.formattedText.withLabel("Title Fifth Person"),
+    cx.part.formattedText.withLabel("Title Sixth Person"),
     cx.part.formSelect.withLabel("Gender Second Person"),
     cx.part.formSelect.withLabel("Gender Third Person"),
     cx.part.formSelect.withLabel("Gender Fourth Person"),
     cx.part.formSelect.withLabel("Gender Fifth Person"),
+    cx.part.formSelect.withLabel("Gender Sixth Person"),
     cx.part.formField.withLabel("First Name Field Second Person"),
     cx.part.formField.withLabel("Last Name Field Second Person"),
     cx.part.formField.withLabel("First Name Field Third Person"),
@@ -26,6 +28,8 @@ module.exports = cx.contentElement
     cx.part.formField.withLabel("Last Name Field Fourth Person"),
     cx.part.formField.withLabel("First Name Field Fifth Person"),
     cx.part.formField.withLabel("Last Name Field Fifth Person"),
+    cx.part.formField.withLabel("First Name Field Sixth Person"),
+    cx.part.formField.withLabel("Last Name Field Sixth Person"),
 
     cx.part.formRadio.withLabel("Ticket Type First Person"),
     cx.part.formRadio.withLabel("Weather Option First Person"),
@@ -46,7 +50,11 @@ module.exports = cx.contentElement
 
     cx.part.formRadio.withLabel("Ticket Type Fifth Person"),
     cx.part.formRadio.withLabel("Weather Option Fifth Person"),
-    cx.part.formRadio.withLabel("Veggie Option Fifth Person")
+    cx.part.formRadio.withLabel("Veggie Option Fifth Person"),
+
+    cx.part.formRadio.withLabel("Ticket Type Sixth Person"),
+    cx.part.formRadio.withLabel("Weather Option Sixth Person"),
+    cx.part.formRadio.withLabel("Veggie Option Sixth Person")
   )
   .withDropzones(
     cx.dropzone

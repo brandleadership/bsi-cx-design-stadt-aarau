@@ -28,7 +28,7 @@
       currentPersonValue = radio.value;
       console.log("currentPersonValue", currentPersonValue);
 
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 7; i++) {
         let iteratedPerson = document.getElementById(
           "additional-person-" + (i + 1)
         );
